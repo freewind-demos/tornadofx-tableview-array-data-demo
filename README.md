@@ -1,4 +1,6 @@
-Kotlin Hello World Demo
-=======================
+Kotlin TornadoFx (JavaFx) Demo
+===============================
 
-Hello world from kotlin. Open it in IDE and run `Hello.kt`
+A simple "Hello world" demo for TornadoFX.
+
+Run `Hello.kt` from your IDE.
