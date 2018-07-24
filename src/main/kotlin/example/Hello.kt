@@ -10,7 +10,7 @@ private val data = observableArrayList(
 )
 
 class HelloWorld : View() {
-    override val root = tableview<Array<String>>(data) {
+    override val root = tableview(data) {
         column<Array<String>, String>("name") { it.value[0].toProperty() }
         column<Array<String>, String>("value") { it.value[1].toProperty() }
 
