@@ -1,21 +1,29 @@
 package example
 
-import javafx.geometry.Pos
+import javafx.beans.property.SimpleStringProperty
+import javafx.collections.FXCollections.observableArrayList
+import javafx.scene.control.TableColumn
 import tornadofx.*
 
+
+private val data = observableArrayList(
+        arrayOf("AAA", "111"),
+        arrayOf("BBB", "222"),
+        arrayOf("CCC", "333")
+)
+
 class HelloWorld : View() {
-    override val root = hbox {
-        label("Hello world")
+    override val root = tableview<Array<String>>(data) {
+        column("name") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[0]) }
+        column("value") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[1]) }
     }
 }
 
 class HelloWorldStyle : Stylesheet() {
     init {
         root {
-            prefWidth = 400.px
+            prefWidth = 600.px
             prefHeight = 400.px
-            alignment = Pos.CENTER
-            fontSize = 50.px
         }
     }
 }
