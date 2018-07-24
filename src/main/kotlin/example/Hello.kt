@@ -1,10 +1,7 @@
 package example
 
-import javafx.beans.property.SimpleStringProperty
 import javafx.collections.FXCollections.observableArrayList
-import javafx.scene.control.TableColumn
 import tornadofx.*
-
 
 private val data = observableArrayList(
         arrayOf("AAA", "111"),
@@ -14,8 +11,12 @@ private val data = observableArrayList(
 
 class HelloWorld : View() {
     override val root = tableview<Array<String>>(data) {
-        column("name") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[0]) }
-        column("value") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[1]) }
+        column<Array<String>, String>("name") { it.value[0].toProperty() }
+        column<Array<String>, String>("value") { it.value[1].toProperty() }
+
+        // simpler than following:
+        // column("name") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[0]) }
+        // column("value") { cellDataFeatures: TableColumn.CellDataFeatures<Array<String>, String> -> SimpleStringProperty(cellDataFeatures.value[1]) }
     }
 }
 
