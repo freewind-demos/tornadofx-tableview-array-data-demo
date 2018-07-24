@@ -1,7 +1,7 @@
-Kotlin TornadoFx (JavaFx) Demo
-===============================
+TornadoFx Table with Array Data Demo
+====================================
 
-A simple "Hello world" demo for TornadoFX.
+Show array of data in a table.
 
 Run `Hello.kt` from your IDE.
 
